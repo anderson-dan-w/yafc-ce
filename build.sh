@@ -1,6 +1,6 @@
 rm -rf Build
 
-VERSION=$(grep -oPm1 "(?<=<AssemblyVersion>)[^<]+" Yafc/Yafc.csproj)
+VERSION=$(ggrep -oPm1 "(?<=<AssemblyVersion>)[^<]+" Yafc/Yafc.csproj)
 echo "Building YAFC version $VERSION..."
 
 dotnet publish Yafc/Yafc.csproj -r win-x64 -c Release -o Build/Windows
@@ -17,4 +17,3 @@ tar czf Yafc-CE-OSX-arm64-$VERSION.tar.gz OSX-arm64
 zip -r Yafc-CE-Windows-$VERSION.zip Windows
 
 popd
-
